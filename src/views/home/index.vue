@@ -16,10 +16,6 @@
       }
     },
     created() {
-      this.getList()
-      this.http.get('/detail').then((res) => {
-        this.title = res
-      })
     },
     mounted() {
     },
@@ -31,15 +27,15 @@
           this.getList()
         })
       },
-      getList() {
-        this.http.get('/home').then((res) => {
-          this.nameList = res.data;
-        })
-      },
+      // getList() {
+      //   this.http.get('/home').then((res) => {
+      //     this.nameList = res.data
+      //   })
+      // },
       login() {
         this.http.post('/login', {
-          username:this.username,
-          password:this.password
+          username: this.username,
+          password: this.password
         }).then(res => {
           window.localStorage.setItem('token', res.token)
         })
